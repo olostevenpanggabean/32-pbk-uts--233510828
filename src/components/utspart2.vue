@@ -47,6 +47,21 @@ function calculateDayTotal(day) {
 function calculateWeekTotal() {
   return days.reduce((total, day) => total + calculateDayTotal(day), 0);
 }
+
+function saveToLocalStorage() {
+  localStorage.setItem('kosExpenses', JSON.stringify(expenses.value));
+}
+
+function loadFromLocalStorage() {
+  const saved = localStorage.getItem('kosExpenses');
+  if (saved) {
+    expenses.value = JSON.parse(saved);
+  }
+}
+
+onMounted(() => {
+  loadFromLocalStorage();
+});
 </script>
 
 <template>
