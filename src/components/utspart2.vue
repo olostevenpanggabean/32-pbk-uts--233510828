@@ -110,9 +110,15 @@ onMounted(() => {
           <button @click="removeExpense(day, index)" class="delete-btn">✕</button>
         </li>
       </ul>
+      <div class="day-total">
+        Total: Rp {{ calculateDayTotal(day).toLocaleString() }}
       </div>
+      </div>
+        <div class="week-total">
+        <h3>Total Pengeluaran Minggu Ini:</h3>
+        <p>Rp {{ calculateWeekTotal().toLocaleString() }}</p>
+        </div>
     </div>
-
 </template>
 
 <style>
