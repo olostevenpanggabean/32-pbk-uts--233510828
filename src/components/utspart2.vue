@@ -122,5 +122,119 @@ onMounted(() => {
 </template>
 
 <style>
+.expense-tracker {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
+.controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.controls select, .controls input {
+  padding: 8px 12px;
+  border: 1px solid #e5e4e4;
+  border-radius: 4px;
+}
+
+.controls input[type="number"] {
+  width: 80px;
+}
+
+button {
+  padding: 8px 16px;
+  background-color: #A5A58D;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.filter-buttons {
+  margin-bottom: 20px;
+}
+
+.filter-buttons button {
+  background-color:     whitesmoke;
+  color: #671c1c;
+  margin-right: 10px;
+}
+
+.filter-buttons button.active {
+  background-color: #A5A58D;
+  color: white;
+}
+
+.day-section {
+  background-color: blanchedalmond;
+  color: #671c1c;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.day-section h2 {
+  margin-top: 0;
+  color: #671c1c;
+  border-bottom: 1px solid #671c1c;
+  padding-bottom: 5px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #2F4F4F;
+}
+
+.completed .expense-text {
+  text-decoration: line-through;
+  color: #2F4F4F;
+}
+
+.amount {
+  font-weight: bold;
+  color: black;
+  margin-left: 10px;
+}
+
+.delete-btn {
+  margin-left: auto;
+  background-color: #671c1c;
+  padding: 2px 8px;
+  border-radius: 50%;
+}
+
+.day-total {
+  text-align: right;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.week-total {
+  background-color: #A5A58D;
+  color:whitesmoke;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.week-total h3 {
+  margin-top: 0;
+}
+
+.week-total p {
+  font-size: 24px;
+  margin-bottom: 0;
+}
 </style>
