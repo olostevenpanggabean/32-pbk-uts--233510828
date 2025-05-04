@@ -84,6 +84,33 @@ onMounted(() => {
       >
       <button @click="addExpense">Tambah</button>
     </div>
+
+    <div class="filter-buttons">
+      <button @click="filter = 'all'" :class="{ active: filter === 'all' }">Semua</button>
+      <button @click="filter = 'uncompleted'" :class="{ active: filter === 'uncompleted' }">Belum Dibayar</button>
+    </div>
+
+    <div v-for="day in days" :key="day" class="day-section">
+      <h2>{{ day }}</h2>
+      <ul>
+        <li 
+          v-for="(expense, index) in filteredExpenses(day)" 
+          :key="index"
+          :class="{ completed: expense.completed }"
+        >
+          <input 
+            type="checkbox" 
+            v-model="expense.completed"
+            @change="saveToLocalStorage"
+          >
+          <span class="expense-text">
+            {{ expense.text }} 
+            <span class="amount">Rp {{ expense.amount.toLocaleString() }}</span>
+          </span>
+          <button @click="removeExpense(day, index)" class="delete-btn">✕</button>
+        </li>
+      </ul>
+      </div>
     </div>
 
 </template>
