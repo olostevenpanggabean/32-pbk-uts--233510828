@@ -32,6 +32,21 @@ function removeExpense(day, index) {
   expenses.value[day].splice(index, 1);
   saveToLocalStorage();
 }
+
+function filteredExpenses(day) {
+  const dayExpenses = expenses.value[day];
+  return filter.value === 'uncompleted' 
+    ? dayExpenses.filter(exp => !exp.completed)
+    : dayExpenses;
+}
+
+function calculateDayTotal(day) {
+  return expenses.value[day].reduce((total, exp) => total + exp.amount, 0);
+}
+
+function calculateWeekTotal() {
+  return days.reduce((total, day) => total + calculateDayTotal(day), 0);
+}
 </script>
 
 <template>
