@@ -16,6 +16,22 @@ days.forEach(day => {
   expenses.value[day] = [];
 });
 
+function addExpense() {
+  if (!newExpense.value.text || newExpense.value.amount <= 0) return;
+  
+  expenses.value[selectedDay.value].push({
+    ...newExpense.value,
+    id: Date.now()
+  });
+  
+  newExpense.value = { text: '', amount: 0, completed: false };
+  saveToLocalStorage();
+}
+
+function removeExpense(day, index) {
+  expenses.value[day].splice(index, 1);
+  saveToLocalStorage();
+}
 </script>
 
 <template>
